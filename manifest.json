@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Table Analysis Extension",
+  "version": "1.0",
+  "description": "extract useful information from html tables",
+  "permissions": ["activeTab", "clipboardWrite"],
+  "commands": {
+    "copy-table": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Z",
+        "mac": "Command+Shift+Z"
+      },
+      "description": "复制表格到剪贴板"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["toast.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
